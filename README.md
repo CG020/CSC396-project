@@ -13,7 +13,8 @@ isSolved: Connecting to a dataset where treamments are listed (be they in form o
 Surdeanu suggested:  recruit one student from the medical school to check the system outputs
 
 ## Dataset Possibilities
-https://github.com/abachaa/MTS-Dialog/blob/main/Augmented-Data/
+https://github.com/abachaa/MTS-Dialog/blob/main/Augmented-Data/MTS-Dialog-Augmented-TrainingSet-1-En-FR-EN-2402-Pairs.csv
 
-MTS-Dialog-Augmented-TrainingSet-1-En-FR-EN-2402-Pairs.csv
 https://www.kaggle.com/datasets/azmayensabil/doctor-patient-conversation-large?select=MSK0008.txt
+
+more on Dataset Details in data/README
