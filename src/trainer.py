@@ -24,7 +24,7 @@ def calculate_class_weights(labels):
 
 
 # where weights, epochs, and learning rates are used in training the model
-def train_model(model, train_dl, dev_dl, device, n_epochs=10, lr=1e-3):
+def train_model(model, train_dl, dev_dl, device, n_epochs=9, lr=1e-3):
     # structured output to see performance over epochs
     print(f"\nStarting training with:")
     print(f"Number of epochs: {n_epochs}")
