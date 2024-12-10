@@ -1,0 +1,11 @@
+
+src/output.txt
+data/Transcripts/.DS_Store
+src/__pycache__/classifier.cpython-38.pyc
+src/__pycache__/processor.cpython-38.pyc
+src/__pycache__/trainer.cpython-38.pyc
+src/__pycache__/classifier.cpython-38.pyc
+src/__pycache__/classifier.cpython-38.pyc
+src/__pycache__/processor.cpython-38.pyc
+src/__pycache__/trainer.cpython-38.pyc
+src/medical_classifier.pt
