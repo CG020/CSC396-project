@@ -20,8 +20,18 @@ This is a kaggle dataset for doctor patient conversations, simply the raw conver
 Explanation from the page: *There are 272 mp3 audio files and 272 corresponding transcript text files. Each file is titled with three characters and four digits. RES stands for respiratory, GAS represents gastrointestinal, CAR is cardiovascular, MSK is musculoskeletal, DER is dermatological, and the four following digits represent the case number of the respective disease category.*
 
 
+## Dataset 3 - US Department of Veteran Affairs
+
+https://www.data.va.gov/dataset/Physician-patient-transcripts-with-4C-coding-analy/4qbs-wgct/data?no_mobile=true
+
+Government dataset with 405 conversations between a doctor and a patient with the occasional 'SECOND' or 'THIRD' person chiming in with input which we stored under 'patient' dialog. These coversations were conducted at the Veterans Health Administration (VHA) medical center primary care clinics. "@@@" indicates the audio couldn't be transcribed at the time of recording - we ignored these entries in code.
+
+
 ## Details
 
-Combined we would have 1,473 conversations to use - each dataset would need its own parsing details attributed to their formats. Not necessary to use all but can use samples to train our first models.
+Combined we would have 1,878 conversations to use - each dataset would need its own parsing details attributed to their formats. Not necessary to use all but can use samples to train our first models.
 
-Both datasets do come with their own medical categories if we want to incorporate that into our project - a venture for later, otherwise they are turn-based conversations between two people - labelled as such.
+Both datasets 1 and 2 do come with their own medical categories if we want to incorporate that into our project - a venture for later, otherwise they are turn-based conversations between two people - labelled as such. 
+
+Update:
+The third dataset we added does not come categorized so we did not incoporate medical categorization into this project for sake of time and extra category assignment
