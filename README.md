@@ -1,3 +1,4 @@
+
 # CSC396-project
 
 ## Proposal for Project
@@ -6,15 +7,17 @@ Project Idea: We plan to make a neural network classifier focused on taking doct
 
 ## Calrification for Verification
 
-isSevere: For isSevere evaluation there is database that weighs disease/illness symptoms based on how long they last that we could train on, if a high enough threshold is reached, a number we haven't determined (maybe lasting more than a week in the body) isSevere would be checked for the conversation we are analyzing.
+isSevere: For isSevere evaluation, we check the conversation against a variety of disease symptoms that require hospitalization or urgent care. 
 
-isSolved: Connecting to a dataset where treamments are listed (be they in form of medicine or procedures) if they are present in the conversation and discussed at length with words that hint to a treatment plan being involved like 'pharmacy' or 'hospital', isSolved will be marked.
+isSolved: For isSolved evaluation, we check the conversation against the identifiers we used for deteriminants of treatment reached, dischargement, or signs of recovery.
 
 Surdeanu suggested:  recruit one student from the medical school to check the system outputs
 
-## Dataset Possibilities
-https://github.com/abachaa/MTS-Dialog/blob/main/Augmented-Data/MTS-Dialog-Augmented-TrainingSet-1-En-FR-EN-2402-Pairs.csv
+## Dataset Used
+Details on datasets in the README located in data foldern(data/README)
 
-https://www.kaggle.com/datasets/azmayensabil/doctor-patient-conversation-large?select=MSK0008.txt
-
-more on Dataset Details in data/README
+## Instructions on How to Run Code:
+- requirements.txt should have the required libraries
+- nltk download
+- run python src/main.py or in src folder run main.py
+- output will display the evaluation results and results are outputted to src/output.txt
