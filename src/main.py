@@ -35,8 +35,8 @@ def main():
     train_features, dev_features, train_labels, dev_labels, vocab_size = prepare_data(df)
     
     # creates the datasets for training and validation
-    train_ds = MedicalDataset(train_features, train_labels, vocab_size)
-    dev_ds = MedicalDataset(dev_features, dev_labels, vocab_size)
+    train_ds = MedicalDataset(train_features, train_labels)
+    dev_ds = MedicalDataset(dev_features, dev_labels)
     
     # batch processesing 
     batch_size = 32
@@ -44,10 +44,11 @@ def main():
     dev_dl = DataLoader(dev_ds, batch_size=batch_size)
     
     # create the model
-    model = MedicalClassifier(input_dim=vocab_size).to(device)
+    model = MedicalClassifier(vocab_size=vocab_size, embedding_dim=128, hidden_dim=256, num_layers=1).to(device)
+
     
     # training model
-    train_loss, dev_loss = train_model(model, train_dl, dev_dl, device, n_epochs=9)
+    train_loss, dev_loss = train_model(model, train_dl, dev_dl, device, n_epochs=7)
     
     # save the model for repeated use
     torch.save(model.state_dict(), 'medical_classifier.pt')

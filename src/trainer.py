@@ -13,18 +13,17 @@ from tqdm import tqdm
 # this is where parameter changes can occur !!
 
 def calculate_class_weights(labels):
-    # weighting function
-    labels = labels.numpy() # converts the tensor to numpy array
-    class_counts = np.bincount(labels) # counts number of 0s and 1s
+    labels = labels.numpy().astype(int) 
+    class_counts = np.bincount(labels) 
+
     total_samples = len(labels)
-    
-    # weights for each class inverse of frequency
-    weights = total_samples / (2 * class_counts) 
+    weights = total_samples / (2 * np.maximum(class_counts, 1)) 
     return torch.FloatTensor(weights)
 
 
+
 # where weights, epochs, and learning rates are used in training the model
-def train_model(model, train_dl, dev_dl, device, n_epochs=9, lr=1e-3):
+def train_model(model, train_dl, dev_dl, device, n_epochs=7, lr=1e-3):
     # structured output to see performance over epochs
     print(f"\nStarting training with:")
     print(f"Number of epochs: {n_epochs}")

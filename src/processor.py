@@ -16,13 +16,15 @@ tqdm.pandas()
 def process_conversations(df):
     processed_data = []
     
-    # conversation ids in the data are the indeces of separate conversations
     for conv_id, group in tqdm(df.groupby('conversation_id'), desc='Processing conversations'):
-        # two parties in question speaker and doctor are their own columns
         doc_text = ' '.join(group[group['speaker'] == 'doctor']['text'])
         pat_text = ' '.join(group[group['speaker'] == 'patient']['text'])
         
-        # combined string 
+        # removing the questions happens here
+
+        doc_text = remove_questions(doc_text)
+
+        # combined texts
         full_text = f"<doctor> {doc_text} </doctor> <patient> {pat_text} </patient>"
         processed_data.append({
             'conversation_id': conv_id,
@@ -31,6 +33,11 @@ def process_conversations(df):
         })
     
     return pd.DataFrame(processed_data)
+
+def remove_questions(text):
+    sentences = text.split('.')
+    filtered_sentences = [sentence.strip() for sentence in sentences if not sentence.strip().endswith('?')]
+    return ' '.join(filtered_sentences)
 
 
 def create_vocabulary(df, threshold=10):
@@ -49,13 +56,10 @@ def create_vocabulary(df, threshold=10):
     
     return token_to_id, len(id_to_token)
 
-
-def create_vector(tokens, token_to_id, unk_id=0):
-    # vector creation
-    vector = defaultdict(int)
-    for t in tokens:
-        i = token_to_id.get(t, unk_id)
-        vector[i] += 1
+def create_vector(tokens, token_to_id, max_length=500):
+    vector = [token_to_id.get(token, 0) for token in tokens[:max_length]]
+    if len(vector) < max_length:
+        vector += [0] * (max_length - len(vector))
     return vector
 
 
