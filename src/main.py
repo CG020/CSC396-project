@@ -25,10 +25,12 @@ def main():
     project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     kaggle_path = os.path.join(project_root, 'data', 'train', 'parsed_kaggle.csv')
     mts_path = os.path.join(project_root, 'data', 'train', 'parsed_mts_dialog.csv')
+    gov_path = os.path.join(project_root, 'data', 'train', 'parsed_va_gov.csv')
 
     df = pd.concat([
         pd.read_csv(kaggle_path),
-        pd.read_csv(mts_path)
+        pd.read_csv(mts_path),
+        pd.read_csv(gov_path)
     ])
     
     # data processesing for trainoing preparation
