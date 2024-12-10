@@ -50,7 +50,7 @@ def main():
     model = MedicalClassifier(input_dim=vocab_size).to(device)
     
     # training model
-    train_loss, dev_loss = train_model(model, train_dl, dev_dl, device, n_epochs=10)
+    train_loss, dev_loss = train_model(model, train_dl, dev_dl, device, n_epochs=7)
 
     # save the model for repeated use
     torch.save(model.state_dict(), 'medical_classifier.pt')

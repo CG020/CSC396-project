@@ -2,9 +2,11 @@ import torch
 import torch.nn as nn
 from torch import optim
 from torch.utils.data import DataLoader
-from sklearn.metrics import classification_report
+from sklearn.metrics import classification_report, confusion_matrix, ConfusionMatrixDisplay
+import matplotlib.pyplot as plt
 import numpy as np
 from tqdm import tqdm
+import os
 
 
 # training script + quick evaluation
@@ -25,6 +27,8 @@ def calculate_class_weights(labels):
 
 # where weights, epochs, and learning rates are used in training the model
 def train_model(model, train_dl, dev_dl, device, n_epochs=7, lr=1e-3):
+    output_dir = 'confusion_matrices'
+    os.makedirs(output_dir, exist_ok=True)
     # structured output to see performance over epochs
     with open('output.txt', 'w') as file:
         output = f"\nStarting training with:\n" + \
@@ -123,6 +127,21 @@ def train_model(model, train_dl, dev_dl, device, n_epochs=7, lr=1e-3):
                 
                 predictions = np.array(predictions)
                 actuals = np.array(actuals)
+
+                cm_severity = confusion_matrix(actuals[:, 0], predictions[:, 0])
+                cm_solved = confusion_matrix(actuals[:, 1], predictions[:, 1])
+                fig, ax = plt.subplots(1, 2, figsize=(12, 5))
+                disp1 = ConfusionMatrixDisplay(confusion_matrix=cm_severity, display_labels=['Not Severe', 'Severe'])
+                disp2 = ConfusionMatrixDisplay(confusion_matrix=cm_solved, display_labels=['Not Solved', 'Solved'])
+                
+                disp1.plot(ax=ax[0], cmap='Blues')
+                ax[0].set_title('Confusion Matrix: Severity')
+                
+                disp2.plot(ax=ax[1], cmap='Blues')
+                ax[1].set_title('Confusion Matrix: Solved')
+                
+                plt.savefig(os.path.join(output_dir, f'confusion_matrix_epoch_{epoch+1}.png'))
+                plt.close(fig)
                 
                 severity_report = classification_report(actuals[:, 0], predictions[:, 0])
                 solved_report = classification_report(actuals[:, 1], predictions[:, 1])
