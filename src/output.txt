@@ -1,0 +1,13 @@
+
+Starting training with:
+Number of epochs: 7
+Learning rate: 0.001
+Device: cpu
+Training batches: 8
+Validation batches: 2
+
+Weights:
+Severity - Not severe: 1.73, Severe: 0.70
+Solved - Not solved: 3.87, Solved: 0.57
+
+Epoch 1/7
