@@ -17,12 +17,12 @@ def process_conversations(df):
     processed_data = []
     
     for conv_id, group in tqdm(df.groupby('conversation_id'), desc='Processing conversations'):
-        doc_text = ' '.join(group[group['speaker'] == 'doctor']['text'])
-        pat_text = ' '.join(group[group['speaker'] == 'patient']['text'])
+        doc_text = ' '.join(group[group['speaker'] == 'doctor']['text']).lower()
+        pat_text = ' '.join(group[group['speaker'] == 'patient']['text']).lower()
         
         # removing the questions happens here
 
-        doc_text = remove_questions(doc_text)
+        # doc_text = remove_questions(doc_text)
 
         # combined texts
         full_text = f"<doctor> {doc_text} </doctor> <patient> {pat_text} </patient>"
