@@ -15,14 +15,12 @@ import os
 # this is where parameter changes can occur !!
 
 def calculate_class_weights(labels):
-    # weighting function
-    labels = labels.numpy() # converts the tensor to numpy array
-    class_counts = np.bincount(labels) # counts number of 0s and 1s
+    labels = labels.numpy()  
+    class_counts = np.bincount(labels)
     total_samples = len(labels)
-    
-    # weights for each class inverse of frequency
-    weights = total_samples / (2 * class_counts) 
-    return torch.FloatTensor(weights)
+    weights = total_samples / (2 * class_counts)
+    scaled_weights = np.sqrt(weights)
+    return torch.FloatTensor(scaled_weights)
 
 
 # where weights, epochs, and learning rates are used in training the model
