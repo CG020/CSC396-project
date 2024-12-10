@@ -17,11 +17,11 @@ def process_conversations(df):
     processed_data = []
     
     for conv_id, group in tqdm(df.groupby('conversation_id'), desc='Processing conversations'):
-        doc_text = ' '.join(group[group['speaker'] == 'doctor']['text']).lower()
+        doc_text = ' '.join(group[group['speaker'] == 'doctor']['text'].fillna('').astype(str)).lower()
         doc_words = [word.strip('"').strip('?').strip('.').strip(',') for word in doc_text.split()]
         doc_text = ' '.join(doc_words)
 
-        pat_text = ' '.join(group[group['speaker'] == 'patient']['text']).lower()
+        pat_text = ' '.join(group[group['speaker'] == 'patient']['text'].fillna('').astype(str)).lower()
         pat_words = [word.strip('"').strip('?').strip('.').strip(',') for word in pat_text.split()]
         pat_text = ' '.join(pat_words)
         
