@@ -39,7 +39,8 @@ def main():
     dev_ds = MedicalDataset(dev_features, dev_labels)
     
     # batch processesing 
-    batch_size = 32
+    #batch_size = 32
+    batch_size = 128
     train_dl = DataLoader(train_ds, batch_size=batch_size, shuffle=True)
     dev_dl = DataLoader(dev_ds, batch_size=batch_size)
     
