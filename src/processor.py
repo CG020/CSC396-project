@@ -19,8 +19,13 @@ def process_conversations(df):
     # conversation ids in the data are the indeces of separate conversations
     for conv_id, group in tqdm(df.groupby('conversation_id'), desc='Processing conversations'):
         # two parties in question speaker and doctor are their own columns
-        doc_text = ' '.join(group[group['speaker'] == 'doctor']['text'])
-        pat_text = ' '.join(group[group['speaker'] == 'patient']['text'])
+        doc_text = ' '.join(group[group['speaker'] == 'doctor']['text'].fillna('').astype(str)).lower()
+        doc_words = [word.strip('"').strip('?').strip('.').strip(',') for word in doc_text.split()]
+        doc_text = ' '.join(doc_words)
+
+        pat_text = ' '.join(group[group['speaker'] == 'patient']['text'].fillna('').astype(str)).lower()
+        pat_words = [word.strip('"').strip('?').strip('.').strip(',') for word in pat_text.split()]
+        pat_text = ' '.join(pat_words)
         
         # combined string 
         full_text = f"<doctor> {doc_text} </doctor> <patient> {pat_text} </patient>"
