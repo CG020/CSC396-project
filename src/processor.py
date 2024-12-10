@@ -34,7 +34,13 @@ def process_conversations(df):
 
 
 def create_vocabulary(df, threshold=10):
-    df['tokens'] = df['text'].progress_apply(word_tokenize)
+    try:
+        df['tokens'] = df['text'].progress_apply(word_tokenize)
+    except Exception:
+        import nltk
+        nltk.download('punkt_tab')
+        nltk.download('punkt')
+        df['tokens'] = df['text'].progress_apply(word_tokenize)
     tokens = df['tokens'].explode().value_counts()
     tokens = tokens[tokens > threshold] # threshold is the limit to reach for a word to be included in the vocab
     
