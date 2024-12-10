@@ -17,7 +17,7 @@ for file in os.listdir(f"{os.getcwd()}\\data\\train"):
             id = entry[0]
             for word in text.split():
                 word = word.strip('"').strip('?').strip('.').strip(',')
-                #word = word.lower()  # filter with capitalization disabled
+                word = word.lower()  # filter with capitalization disabled
                 if word.isnumeric():
                     continue
                 if (word in dictionary):
@@ -47,4 +47,4 @@ for word, data in max_count.items():
 sorted_items = sorted(max_words.items(), key=lambda kv: (kv[1], kv[0]))
 
 for word, count in sorted_items[::-1]:
-    print(word, count)
+    print(word)
