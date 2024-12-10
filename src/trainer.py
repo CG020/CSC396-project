@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from tqdm import tqdm
 import os
+import pandas as pd
 
 
 # training script + quick evaluation
@@ -21,6 +22,33 @@ def calculate_class_weights(labels):
     weights = total_samples / (2 * class_counts)
     scaled_weights = np.sqrt(weights)
     return torch.FloatTensor(scaled_weights)
+
+
+def save_conversation_labels(model, data_loader, original_df, device, output_file='conversation_labels.csv'):
+    model.eval()
+    all_predictions = []
+    all_actuals = []
+    
+    with torch.no_grad():
+        for X, y_true in data_loader:
+            X = X.to(device)
+            outputs = model(X)
+            predictions = torch.sigmoid(outputs).cpu().numpy() > 0.5
+            all_predictions.extend(predictions)
+            all_actuals.extend(y_true.cpu().numpy())
+    
+    results_df = pd.DataFrame({
+        'conversation': original_df['text'],
+        'predicted_severe': [p[0] for p in all_predictions],
+        'actual_severe': [a[0] for a in all_actuals],
+        'predicted_solved': [p[1] for p in all_predictions],
+        'actual_solved': [a[1] for a in all_actuals]
+    })
+    
+    results_df['severe_correct'] = results_df['predicted_severe'] == results_df['actual_severe']
+    results_df['solved_correct'] = results_df['predicted_solved'] == results_df['actual_solved']
+    
+    results_df.to_csv(output_file, index=False)
 
 
 # where weights, epochs, and learning rates are used in training the model

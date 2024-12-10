@@ -249,4 +249,4 @@ def prepare_data(df, test_size=0.2):
     train_features = train_df['features'].tolist()
     dev_features = dev_df['features'].tolist()
     
-    return train_features, dev_features, train_labels, dev_labels, vocab_size
+    return train_features, dev_features, train_labels, dev_labels, vocab_size, train_df, dev_df

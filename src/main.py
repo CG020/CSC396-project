@@ -8,7 +8,7 @@ from torch.utils.data import DataLoader
 
 from classifier import MedicalClassifier, MedicalDataset
 from processor import prepare_data
-from trainer import train_model
+from trainer import train_model, save_conversation_labels
 
 def main():
     # gpu setup
@@ -34,7 +34,7 @@ def main():
     ])
     
     # data processesing for trainoing preparation
-    train_features, dev_features, train_labels, dev_labels, vocab_size = prepare_data(df)
+    train_features, dev_features, train_labels, dev_labels, vocab_size, train_df, dev_df = prepare_data(df)
     
     # creates the datasets for training and validation
     train_ds = MedicalDataset(train_features, train_labels, vocab_size)
@@ -51,6 +51,8 @@ def main():
     
     # training model
     train_loss, dev_loss = train_model(model, train_dl, dev_dl, device, n_epochs=7)
+
+    save_conversation_labels(model, dev_dl, dev_df, device)
 
     # save the model for repeated use
     torch.save(model.state_dict(), 'medical_classifier.pt')
