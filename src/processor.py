@@ -60,12 +60,26 @@ def create_labels(df):
     for _, row in tqdm(df.iterrows(), desc='Creating labels', total=len(df)):
         text = row['text'].lower()
         
-        severe_indicators = ['severe', 'emergency', 'worst', 'extreme', 'fever',
-                           'chest pain', 'shortness of breath']
+        severe_indicators = severe_indicators = [
+            'severe', 'emergency', 'worst', 'extreme', 'fever',
+            'chest pain', 'shortness of breath',
+            'high blood pressure', 'low blood pressure', 'rapid heart rate',
+            'difficulty breathing', 'unconscious', 'fainting',
+            'excruciating', 'unbearable', 'intense pain', 'severe pain',
+            'immediate attention', 'urgent care', 'emergency room',
+            'sepsis', 'heart attack', 'stroke', 'internal bleeding'
+        ]
         is_severe = any(term in text for term in severe_indicators)
         
-        solved_indicators = ['prescription', 'treatment', 'resolved', 'better',
-                           'follow up', 'thank you']
+        solved_indicators = [
+            'prescription', 'treatment', 'resolved', 'better',
+            'follow up', 'thank you',
+            'prescribed', 'medication', 'dosage', 'pills', 'tablets',
+            'treatment plan', 'care plan', 'management plan',
+            'improved', 'feeling better', 'symptoms resolved', 'recovery',
+            'follow-up appointment', 'check back', 'monitor',
+            'discharge', 'can go home', 'cleared to leave'
+        ]
         is_solved = any(term in text for term in solved_indicators)
         
         labels.append([int(is_severe), int(is_solved)])
