@@ -18,7 +18,12 @@ def process_conversations(df):
     
     for conv_id, group in tqdm(df.groupby('conversation_id'), desc='Processing conversations'):
         doc_text = ' '.join(group[group['speaker'] == 'doctor']['text']).lower()
+        doc_words = [word.strip('"').strip('?').strip('.').strip(',') for word in doc_text.split()]
+        doc_text = ' '.join(doc_words)
+
         pat_text = ' '.join(group[group['speaker'] == 'patient']['text']).lower()
+        pat_words = [word.strip('"').strip('?').strip('.').strip(',') for word in pat_text.split()]
+        pat_text = ' '.join(pat_words)
         
         # removing the questions happens here
 
