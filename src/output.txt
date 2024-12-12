@@ -1,66 +1,162 @@
 
 Starting training with:
-Number of epochs: 10
+Number of epochs: 7
 Learning rate: 0.001
 Device: cpu
 Training batches: 8
 Validation batches: 2
 
 Weights:
-Severity - Not severe: 1.73, Severe: 0.70
-Solved - Not solved: 3.87, Solved: 0.57
+Severity - Not severe: 1.32, Severe: 0.84
+Solved - Not solved: 1.97, Solved: 0.76
 
-Epoch 1/10
-Training Loss: 1.0267
-Validation Loss: 0.9873
+Epoch 1/7
+Training Loss: 1.2147
+Validation Loss: 1.1686
 
 Severity :
               precision    recall  f1-score   support
 
-           0       0.18      0.21      0.20        57
-           1       0.74      0.71      0.72       184
+           0       0.14      0.16      0.15        57
+           1       0.73      0.71      0.72       184
 
-    accuracy                           0.59       241
-   macro avg       0.46      0.46      0.46       241
-weighted avg       0.61      0.59      0.60       241
+    accuracy                           0.58       241
+   macro avg       0.44      0.43      0.43       241
+weighted avg       0.59      0.58      0.58       241
 
 Solved :
               precision    recall  f1-score   support
 
-           0       0.15      0.89      0.25        36
-           1       0.84      0.10      0.18       205
+           0       0.13      0.67      0.22        36
+           1       0.79      0.21      0.34       205
 
-    accuracy                           0.22       241
-   macro avg       0.49      0.50      0.22       241
-weighted avg       0.74      0.22      0.19       241
+    accuracy                           0.28       241
+   macro avg       0.46      0.44      0.28       241
+weighted avg       0.69      0.28      0.32       241
 
-Epoch 2/10
-Training Loss: 0.9912
-Validation Loss: 0.9772
+Epoch 2/7
+Training Loss: 1.1609
+Validation Loss: 1.1106
 
 Severity :
               precision    recall  f1-score   support
 
-           0       0.20      0.02      0.03        57
+           0       0.25      0.02      0.03        57
            1       0.76      0.98      0.86       184
 
-    accuracy                           0.75       241
-   macro avg       0.48      0.50      0.44       241
-weighted avg       0.63      0.75      0.66       241
+    accuracy                           0.76       241
+   macro avg       0.51      0.50      0.45       241
+weighted avg       0.64      0.76      0.66       241
 
 Solved :
               precision    recall  f1-score   support
 
-           0       0.17      0.83      0.28        36
-           1       0.90      0.27      0.42       205
+           0       0.16      0.22      0.18        36
+           1       0.85      0.79      0.82       205
 
-    accuracy                           0.36       241
-   macro avg       0.54      0.55      0.35       241
-weighted avg       0.79      0.36      0.40       241
+    accuracy                           0.71       241
+   macro avg       0.50      0.51      0.50       241
+weighted avg       0.75      0.71      0.73       241
 
-Epoch 3/10
-Training Loss: 0.9612
-Validation Loss: 0.9632
+Epoch 3/7
+Training Loss: 1.1310
+Validation Loss: 1.1108
+
+Severity :
+              precision    recall  f1-score   support
+
+           0       0.14      0.09      0.11        57
+           1       0.75      0.84      0.79       184
+
+    accuracy                           0.66       241
+   macro avg       0.45      0.46      0.45       241
+weighted avg       0.60      0.66      0.63       241
+
+Solved :
+              precision    recall  f1-score   support
+
+           0       0.50      0.03      0.05        36
+           1       0.85      1.00      0.92       205
+
+    accuracy                           0.85       241
+   macro avg       0.68      0.51      0.49       241
+weighted avg       0.80      0.85      0.79       241
+
+Epoch 4/7
+Training Loss: 1.1078
+Validation Loss: 1.0782
+
+Severity :
+              precision    recall  f1-score   support
+
+           0       0.07      0.02      0.03        57
+           1       0.75      0.92      0.83       184
+
+    accuracy                           0.71       241
+   macro avg       0.41      0.47      0.43       241
+weighted avg       0.59      0.71      0.64       241
+
+Solved :
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00        36
+           1       0.85      1.00      0.92       205
+
+    accuracy                           0.85       241
+   macro avg       0.42      0.50      0.46       241
+weighted avg       0.72      0.85      0.78       241
+
+Epoch 5/7
+Training Loss: 1.0699
+Validation Loss: 1.0746
+
+Severity :
+              precision    recall  f1-score   support
+
+           0       0.14      0.05      0.08        57
+           1       0.75      0.90      0.82       184
+
+    accuracy                           0.70       241
+   macro avg       0.45      0.48      0.45       241
+weighted avg       0.61      0.70      0.65       241
+
+Solved :
+              precision    recall  f1-score   support
+
+           0       0.12      0.03      0.05        36
+           1       0.85      0.97      0.90       205
+
+    accuracy                           0.83       241
+   macro avg       0.49      0.50      0.47       241
+weighted avg       0.74      0.83      0.78       241
+
+Epoch 6/7
+Training Loss: 1.0186
+Validation Loss: 1.0579
+
+Severity :
+              precision    recall  f1-score   support
+
+           0       0.13      0.05      0.07        57
+           1       0.75      0.89      0.82       184
+
+    accuracy                           0.69       241
+   macro avg       0.44      0.47      0.45       241
+weighted avg       0.61      0.69      0.64       241
+
+Solved :
+              precision    recall  f1-score   support
+
+           0       0.22      0.06      0.09        36
+           1       0.85      0.97      0.91       205
+
+    accuracy                           0.83       241
+   macro avg       0.54      0.51      0.50       241
+weighted avg       0.76      0.83      0.78       241
+
+Epoch 7/7
+Training Loss: 0.9814
+Validation Loss: 1.0263
 
 Severity :
               precision    recall  f1-score   support
@@ -75,177 +171,9 @@ weighted avg       0.62      0.72      0.66       241
 Solved :
               precision    recall  f1-score   support
 
-           0       0.21      0.42      0.28        36
-           1       0.88      0.72      0.79       205
+           0       0.11      0.03      0.04        36
+           1       0.85      0.96      0.90       205
 
-    accuracy                           0.68       241
-   macro avg       0.54      0.57      0.53       241
-weighted avg       0.78      0.68      0.71       241
-
-Epoch 4/10
-Training Loss: 0.9374
-Validation Loss: 0.9784
-
-Severity :
-              precision    recall  f1-score   support
-
-           0       0.17      0.14      0.15        57
-           1       0.75      0.78      0.76       184
-
-    accuracy                           0.63       241
-   macro avg       0.46      0.46      0.46       241
-weighted avg       0.61      0.63      0.62       241
-
-Solved :
-              precision    recall  f1-score   support
-
-           0       0.16      0.39      0.23        36
-           1       0.86      0.65      0.74       205
-
-    accuracy                           0.61       241
-   macro avg       0.51      0.52      0.49       241
-weighted avg       0.76      0.61      0.67       241
-
-Epoch 5/10
-Training Loss: 0.9005
-Validation Loss: 0.9599
-
-Severity :
-              precision    recall  f1-score   support
-
-           0       0.23      0.39      0.29        57
-           1       0.76      0.60      0.67       184
-
-    accuracy                           0.55       241
-   macro avg       0.49      0.49      0.48       241
-weighted avg       0.63      0.55      0.58       241
-
-Solved :
-              precision    recall  f1-score   support
-
-           0       0.14      0.44      0.21        36
-           1       0.84      0.52      0.64       205
-
-    accuracy                           0.51       241
-   macro avg       0.49      0.48      0.43       241
-weighted avg       0.74      0.51      0.58       241
-
-Epoch 6/10
-Training Loss: 0.8657
-Validation Loss: 0.9291
-
-Severity :
-              precision    recall  f1-score   support
-
-           0       0.22      0.16      0.18        57
-           1       0.76      0.83      0.79       184
-
-    accuracy                           0.67       241
-   macro avg       0.49      0.49      0.49       241
-weighted avg       0.63      0.67      0.65       241
-
-Solved :
-              precision    recall  f1-score   support
-
-           0       0.29      0.22      0.25        36
-           1       0.87      0.90      0.89       205
-
-    accuracy                           0.80       241
-   macro avg       0.58      0.56      0.57       241
-weighted avg       0.78      0.80      0.79       241
-
-Epoch 7/10
-Training Loss: 0.8165
-Validation Loss: 0.9107
-
-Severity :
-              precision    recall  f1-score   support
-
-           0       0.20      0.11      0.14        57
-           1       0.76      0.87      0.81       184
-
-    accuracy                           0.69       241
+    accuracy                           0.82       241
    macro avg       0.48      0.49      0.47       241
-weighted avg       0.63      0.69      0.65       241
-
-Solved :
-              precision    recall  f1-score   support
-
-           0       0.17      0.11      0.13        36
-           1       0.85      0.90      0.88       205
-
-    accuracy                           0.78       241
-   macro avg       0.51      0.51      0.51       241
-weighted avg       0.75      0.78      0.77       241
-
-Epoch 8/10
-Training Loss: 0.7530
-Validation Loss: 0.9207
-
-Severity :
-              precision    recall  f1-score   support
-
-           0       0.12      0.07      0.09        57
-           1       0.75      0.85      0.79       184
-
-    accuracy                           0.66       241
-   macro avg       0.44      0.46      0.44       241
-weighted avg       0.60      0.66      0.63       241
-
-Solved :
-              precision    recall  f1-score   support
-
-           0       0.19      0.14      0.16        36
-           1       0.86      0.89      0.87       205
-
-    accuracy                           0.78       241
-   macro avg       0.52      0.52      0.52       241
-weighted avg       0.76      0.78      0.77       241
-
-Epoch 9/10
-Training Loss: 0.7186
-Validation Loss: 0.9472
-
-Severity :
-              precision    recall  f1-score   support
-
-           0       0.20      0.21      0.21        57
-           1       0.75      0.74      0.75       184
-
-    accuracy                           0.61       241
-   macro avg       0.48      0.47      0.48       241
-weighted avg       0.62      0.61      0.62       241
-
-Solved :
-              precision    recall  f1-score   support
-
-           0       0.19      0.17      0.18        36
-           1       0.86      0.87      0.86       205
-
-    accuracy                           0.77       241
-   macro avg       0.52      0.52      0.52       241
-weighted avg       0.76      0.77      0.76       241
-
-Epoch 10/10
-Training Loss: 0.6659
-Validation Loss: 0.9689
-
-Severity :
-              precision    recall  f1-score   support
-
-           0       0.14      0.14      0.14        57
-           1       0.73      0.73      0.73       184
-
-    accuracy                           0.59       241
-   macro avg       0.44      0.44      0.44       241
-weighted avg       0.59      0.59      0.59       241
-
-Solved :
-              precision    recall  f1-score   support
-
-           0       0.06      0.03      0.04        36
-           1       0.84      0.92      0.88       205
-
-    accuracy                           0.78       241
-   macro avg       0.45      0.47      0.46       241
-weighted avg       0.73      0.78      0.75       241
+weighted avg       0.74      0.82      0.77       241
